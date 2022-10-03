@@ -18,4 +18,4 @@ Instructions on how to run the game on your local machine.
 
 ## Program Flow
 
-!["Program Flow"](./docs/gameflow.svg)
+!["Program Flow"](./docs/gameflow.jpg)
