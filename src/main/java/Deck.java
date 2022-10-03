@@ -18,6 +18,7 @@ public class Deck {
         for (CardSuitEnum suit : CardSuitEnum.values()) {
             for (CardRankEnum rank : CardRankEnum.values()) {
                 cards[counter] = new Card(suit, rank);
+                counter++;
             }
         }
     }
@@ -28,7 +29,7 @@ public class Deck {
         queue = new LinkedList<>();
         Random rand = new Random();
 
-        for (int i = cards.length; i > 0; i--) {
+        for (int i = cards.length - 1; i > 0; i--) {
             int j = rand.nextInt(i + 1);
 
             Card temp = cards[i];
@@ -41,7 +42,7 @@ public class Deck {
         }
     }
 
-    public Card dealCard() {
+    public Card drawCard() {
         return queue.remove();
     }
 
