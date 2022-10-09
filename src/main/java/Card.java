@@ -3,6 +3,7 @@ package src.main.java;
 public class Card {
     private CardSuitEnum suit;
     private CardRankEnum rank;
+    private boolean faceup = true;
 
     public Card(CardSuitEnum suit, CardRankEnum rank) {
         this.suit = suit;
@@ -15,6 +16,14 @@ public class Card {
 
     public CardRankEnum getRank() {
         return rank;
+    }
+
+    public boolean getSide() {
+        return this.faceup;
+    }
+
+    public void flipCard() {
+        this.faceup = !this.faceup;
     }
 
     public Integer getRankInteger() {
@@ -33,6 +42,6 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Suit: " + suit.toString() + ", Rank: " + rank.toString();
+        return "Suit: " + this.suit.toString() + ", Rank: " + this.rank.toString();
     }
 }
