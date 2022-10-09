@@ -1,5 +1,6 @@
 package src.main.java;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
@@ -9,15 +10,11 @@ public class Deck {
     private Queue<Card> queue;
 
     public Deck() {
-        this.initializeCards();
-    }
-
-    public void initializeCards() {
         int counter = 0;
 
         for (CardSuitEnum suit : CardSuitEnum.values()) {
             for (CardRankEnum rank : CardRankEnum.values()) {
-                cards[counter] = new Card(suit, rank);
+                this.cards[counter] = new Card(suit, rank);
                 counter++;
             }
         }
@@ -37,9 +34,7 @@ public class Deck {
             cards[j] = temp;
         }
 
-        for (int i = 0; i < cards.length; i++) {
-            queue.add(cards[i]);
-        }
+        Collections.addAll(queue, cards);
     }
 
     public Card drawCard() {
