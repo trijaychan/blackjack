@@ -3,7 +3,7 @@ package src.main.java;
 public class Card {
     private CardSuitEnum suit;
     private CardRankEnum rank;
-    private boolean faceup = true;
+    private boolean faceUp = true;
 
     public Card(CardSuitEnum suit, CardRankEnum rank) {
         this.suit = suit;
@@ -18,12 +18,12 @@ public class Card {
         return rank;
     }
 
-    public boolean getSide() {
-        return this.faceup;
+    public boolean getFaceUp() {
+        return this.faceUp;
     }
 
-    public void flipCard() {
-        this.faceup = !this.faceup;
+    public void setFaceUp(boolean value) {
+        this.faceUp = value;
     }
 
     public Integer getRankInteger() {
@@ -32,7 +32,7 @@ public class Card {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof Card)) {
+        if (!(obj instanceof Card)) {
             return false;
         } else {
             Card cardToCompare = (Card) obj;
