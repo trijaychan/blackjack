@@ -1,7 +1,5 @@
 package src.main.java;
 
-import java.util.Scanner;
-
 public class Hand {
     private Card[] cards = new Card[21];
     private int aceValue = 0;
@@ -102,7 +100,7 @@ public class Hand {
     }
 
     public void print() {
-        String output = "";
+        StringBuilder output = new StringBuilder();
 
         for (int i = 0; i < 7; i++) {
             for (Card card : cards) {
@@ -110,22 +108,22 @@ public class Hand {
                     break;
                 } else if (i == 3) {
                     CardSuitEnum suit = card.getSuit();
-                    output += "|" + suit.toString().substring(0, 5) + "| ";
+                    output.append("|").append(suit.toString(), 0, 5).append("| ");
                 } else if (i == 1 || i == 5) {
                     int rank = (card.getRank().equals(CardRankEnum.ACE)) ? this.aceValue : card.getRankInteger();
 
                     String content = (rank < 10) ? "    " : "   ";
                     content = (i == 1) ? rank + content : content + rank;
 
-                    output += "|" + content + "| ";
+                    output.append("|").append(content).append("| ");
                 } else if (i == 0 || i == 6) {
-                    output += "+-----+ ";
+                    output.append("+-----+ ");
                 } else {
-                    output += "|     | ";
+                    output.append("|     | ");
                 }
             }
 
-            output += "\n";
+            output.append("\n");
         }
 
         System.out.println(output);

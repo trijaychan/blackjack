@@ -114,7 +114,7 @@ public class Game {
     }
 
     private void promptDoubleDown() {
-        String input = "";
+        String input;
         System.out.print("Would you like to double down (y/n)? ");
         input = scanner.nextLine().toLowerCase();
 
@@ -124,7 +124,7 @@ public class Game {
     }
 
     private void promptSplitPairs() {
-        String input = "";
+        String input;
         System.out.print("Would you like to split pairs (y/n)? ");
         input = scanner.nextLine().toLowerCase();
 
@@ -270,13 +270,13 @@ public class Game {
     private void printHands() {
         int cardHeight = 7;
         int cardWidth = 7;
-        String output = "";
+        StringBuilder output = new StringBuilder();
 
         for (int i = 0; i < cardHeight; i++) {
             if (i == 0) {
                 int dealerCards = this.dealer.getTotalCards();
                 String spacer = new String(new char[3 + cardWidth * (dealerCards - 1)]).replace("\0", " ");
-                output += "Dealer " + spacer + "Player\n";
+                output.append("Dealer ").append(spacer).append("Player\n");
             }
 
             for (int j = 0; j < ((this.player.getSplitPairs()) ? 3 : 2); j++) {
@@ -291,31 +291,31 @@ public class Game {
                     }
 
                     if (!card.getFaceUp()) {
-                        output += edge + spacer + edge + " ";
+                        output.append(edge).append(spacer).append(edge).append(" ");
                     } else {
-                        String inbetween;
+                        String content;
 
                         if (i == 1 || i == cardHeight - 2) {
                             int rank = (card.getRank().equals(CardRankEnum.ACE)) ? hand.getAceValue() : card.getRankInteger();
                             String sign = (rank > 10 || rank == 0) ? card.getRank().toString().substring(0, 1) : card.getRankInteger().toString();
                             int length = cardWidth - 2 - sign.length();
                             String spaces = new String(new char[length]).replace("\0", " ");
-                            inbetween = (i == 1) ? sign + spaces : spaces + sign;
+                            content = (i == 1) ? sign + spaces : spaces + sign;
                         } else if (i == 3) {
                             CardSuitEnum suit = card.getSuit();
-                            inbetween = suit.toString().substring(0, cardWidth - 2);
+                            content = suit.toString().substring(0, cardWidth - 2);
                         } else {
-                            inbetween = spacer;
+                            content = spacer;
                         }
 
-                        output += edge + inbetween + edge + " ";
+                        output.append(edge).append(content).append(edge).append(" ");
                     }
                 }
 
-                output += " ";
+                output.append(" ");
             }
 
-            output += "\n";
+            output.append("\n");
         }
 
         System.out.println(output);

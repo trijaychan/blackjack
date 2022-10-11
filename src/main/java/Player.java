@@ -3,7 +3,7 @@ package src.main.java;
 import java.util.Scanner;
 
 public class Player {
-    private Hand[] hands = new Hand[2];
+    private final Hand[] hands = new Hand[2];
     private float money = 10;
     private float insurance = 0;
     private boolean splitPairs = false;
@@ -15,10 +15,6 @@ public class Player {
         if (dealer) {
             this.money = 0;
         }
-    }
-
-    public Hand[] getHands() {
-        return this.hands;
     }
 
     public Hand getHand() {
@@ -55,7 +51,7 @@ public class Player {
 
     public void setWager(float wager, int index) {
         this.money -= wager;
-        this.hands[1].setWager(wager);
+        this.hands[index].setWager(wager);
     }
 
     public float getInsurance() {
@@ -141,10 +137,6 @@ public class Player {
 
     public boolean getDoubledDown() {
         return this.doubledDown;
-    }
-
-    public void printHand() {
-        this.hands[0].print();
     }
 
     public void printHand(int index) {

@@ -6,7 +6,7 @@ import java.util.Queue;
 import java.util.Random;
 
 public class Deck {
-    private Card[] cards = new Card[52];
+    private final Card[] cards = new Card[52];
     private Queue<Card> queue;
 
     public Deck() {

@@ -1,8 +1,8 @@
 package src.main.java;
 
 public class Card {
-    private CardSuitEnum suit;
-    private CardRankEnum rank;
+    private final CardSuitEnum suit;
+    private final CardRankEnum rank;
     private boolean faceUp = true;
 
     public Card(CardSuitEnum suit, CardRankEnum rank) {
@@ -32,10 +32,9 @@ public class Card {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Card)) {
+        if (!(obj instanceof Card cardToCompare)) {
             return false;
         } else {
-            Card cardToCompare = (Card) obj;
             return rank.equals(cardToCompare.getRank()) && suit.equals(cardToCompare.getSuit());
         }
     }
