@@ -1,6 +1,6 @@
 # Blackjack
 
-The casino banking game implemented in Java and playable through the command line.
+The casino banking game implemented in Java such that it is playable through the command line.
 
 ## Getting Started
 
@@ -15,7 +15,6 @@ Instructions on how to run the game on your local machine.
 - Clone the repository onto your machine with `git clone <url>`
 - Compile and run
 
-
-## Program Flow
+## Game Flow
 
 !["Program Flow"](./docs/gameflow.jpg)
